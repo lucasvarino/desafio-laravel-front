@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/";
+const API_URL = "http://127.0.0.1:8000/api/";
 const config = {
   headers: {
     "Content-Type": "application/json",
@@ -19,12 +19,12 @@ class AuthService {
         },
         config
       )
-      .then((response) => {
-        if (response.status === 200) {
-          localStorage.setItem("token", response.authorisation.token);
+      .then(({ data, status }) => {
+        if (status === 200) {
+          localStorage.setItem("token", data.authorisation.token);
         }
 
-        return response.data;
+        return data;
       });
   }
 
