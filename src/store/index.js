@@ -1,9 +1,12 @@
-import { createStore } from "vuex";
+import { createStore, createLogger } from "vuex";
+import auth from "@/store/auth";
+
+const debug = process.env.NODE_ENV !== "production";
 
 export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: {
+    auth,
+  },
+  strict: debug,
+  plugins: debug ? [createLogger()] : [],
 });
