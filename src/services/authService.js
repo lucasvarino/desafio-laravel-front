@@ -9,7 +9,7 @@ const config = {
 };
 
 class AuthService {
-  login(user) {
+  async login(user) {
     return axios
       .post(
         API_URL + "login",

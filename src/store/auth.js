@@ -13,8 +13,8 @@ const mutations = {
 };
 
 const actions = {
-  login({ commit }, user) {
-    const result = AuthService.login(user);
+  async login({ commit }, user) {
+    const result = await AuthService.login(user);
 
     if (result.status !== "success") {
       throw new Error("Invalid Credentials");
